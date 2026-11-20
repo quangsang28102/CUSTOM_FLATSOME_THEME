@@ -1,0 +1,1618 @@
+/* ==========================================================================
+   HPO Press Coverage Styles (F8 Strip + Dialog & F9 News Rotator)
+   Enqueued after flatsome-main & hpo-elements via hpo_enqueue_module_assets.
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Base Ticker Strip & Keyframes (ported from site-sections.css:238-264)
+   ========================================================================== */
+.strip {
+  background: linear-gradient(180deg, #0e1b45 0%, #0a1535 100%);
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid rgba(212, 165, 80, 0.18);
+}
+.strip-track {
+  display: flex;
+  gap: 56px;
+  padding: 18px 0;
+  animation: tickerScroll var(--marquee-duration, 32s) linear infinite;
+  white-space: nowrap;
+}
+.strip:hover .strip-track {
+  animation-play-state: paused;
+}
+@keyframes tickerScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================================================
+   2. Press Highlights Strip (ported from homepage-strip-highlights.css)
+   ========================================================================== */
+html body .strip.strip--highlights {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f7fe 100%);
+  border-top: 1px solid #e5eaf5;
+  border-bottom: 1px solid #e5eaf5;
+  color: #1e3a8a;
+  font-family: var(--ff-body, "SVN-Gilroy", "Be Vietnam Pro", system-ui, sans-serif);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+}
+html body .strip.strip--highlights[hidden] {
+  display: none !important;
+}
+html body .strip.strip--highlights *,
+html body .strip.strip--highlights *::before,
+html body .strip.strip--highlights *::after {
+  box-sizing: border-box;
+}
+html body .strip--highlights .strip-track {
+  gap: 0;
+  width: max-content;
+  padding: 16px 0;
+  animation-duration: var(--marquee-duration, 60s);
+}
+html body .strip--highlights .strip-group {
+  display: flex;
+  gap: 14px;
+  padding-right: 14px;
+}
+html body .strip--highlights .strip-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  padding: 8px 18px 8px 8px;
+  border: 1px solid #dbe3f3;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(16, 42, 86, 0.06);
+  font-size: 15px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+html body .strip--highlights .strip-chip b {
+  color: #1e3a8a;
+  font-weight: 700;
+}
+html body .strip--highlights .strip-chip__desc {
+  color: #475569;
+}
+html body .strip--highlights .strip-chip__icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #eef2ff;
+  color: #2b26fb;
+}
+html body .strip--highlights .strip-chip__icon svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  max-width: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---- Press Strip layout & label button ---- */
+html body .strip.strip--press {
+  display: flex;
+  align-items: center;
+  -webkit-mask-image: none;
+          mask-image: none;
+}
+html body .strip--press .strip-press__label {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 10px;
+  min-height: 0;
+  margin: 0;
+  padding: 0 18px 0 clamp(16px, 2vw, 28px);
+  border-right: 1px solid #dbe3f3;
+  border-radius: 0;
+  color: #1e3a8a;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: none;
+}
+html body .strip--press .strip-press__label-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #1e40af;
+  color: #fff;
+}
+html body .strip--press .strip-press__label-icon svg,
+html body .strip--press .strip-chip__go {
+  display: block;
+  max-width: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+html body .strip--press .strip-press__label-icon svg {
+  width: 21px;
+  height: 21px;
+}
+html body .strip--press .strip-press__viewport {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 94%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 94%, transparent 100%);
+}
+html body .strip--press .strip-track {
+  animation-duration: var(--marquee-duration, 300s);
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+html body .strip--press:focus-within .strip-track {
+  animation-play-state: paused;
+}
+
+html body .strip--press .strip-chip--press {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+html body .strip--press .strip-chip--press .strip-chip__desc {
+  max-width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+html body .strip--press .strip-chip__go {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  color: #94a3b8;
+  transition: color 0.2s, transform 0.2s;
+}
+html body .strip--press .strip-chip--press:hover,
+html body .strip--press .strip-chip--press:focus-visible {
+  color: inherit;
+  text-decoration: none;
+  border-color: #1e40af;
+  box-shadow: 0 8px 22px rgba(30, 64, 175, 0.16);
+  transform: translateY(-2px);
+  outline: none;
+}
+html body .strip--press .strip-chip--press:focus-visible {
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.3), 0 8px 22px rgba(30, 64, 175, 0.16);
+}
+html body .strip--press .strip-chip--press:hover .strip-chip__desc,
+html body .strip--press .strip-chip--press:focus-visible .strip-chip__desc {
+  color: #0a1330;
+}
+html body .strip--press .strip-chip--press:hover .strip-chip__go,
+html body .strip--press .strip-chip--press:focus-visible .strip-chip__go {
+  color: #1e40af;
+  transform: translate(2px, -2px);
+}
+
+/* ==========================================================================
+   3. Press List Dialog & Toolbar (ported from homepage-press-list-dialog.css)
+   ========================================================================== */
+html body .strip--press .strip-press__open {
+  align-self: stretch;
+  border-top: 0;
+  border-bottom: 0;
+  border-left: 0;
+  background: transparent;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: background-color 0.2s;
+}
+html body .strip--press .strip-press__open:hover {
+  background: #eef2ff;
+  box-shadow: none;
+}
+html body .strip--press .strip-press__open:focus-visible {
+  outline: 3px solid #1e40af;
+  outline-offset: -3px;
+}
+html body .strip--press .strip-press__label-icon {
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+html body .strip--press .strip-press__open:hover .strip-press__label-icon {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(30, 64, 175, 0.3);
+}
+html body .strip--press .strip-press__count {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 5px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  background: #0a1330;
+  color: #facc15;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 18px;
+  letter-spacing: 0;
+  text-align: center;
+}
+html body .strip--press .strip-press__text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+html body .strip--press .strip-press__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: #1e40af;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+html body .strip--press .strip-press__more svg {
+  display: block;
+  width: 14px;
+  height: 14px;
+  max-width: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s;
+}
+html body .strip--press .strip-press__open:hover .strip-press__more {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+html body .strip--press .strip-press__open:hover .strip-press__more svg {
+  transform: translateX(3px);
+}
+
+html body .strip--press.is-paused .strip-track {
+  animation-play-state: paused;
+}
+html.press-dialog-open {
+  overflow: hidden;
+}
+
+/* ---- Dialog container & Flatsome neutralizations ---- */
+html body .press-dialog {
+  box-sizing: border-box;
+  width: min(980px, calc(100vw - 32px));
+  max-width: none;
+  max-height: min(86vh, 860px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  background: #fff;
+  color: #0a1330;
+  font-family: var(--ff-body, "SVN-Gilroy", "Be Vietnam Pro", system-ui, sans-serif);
+  font-size: 16px;
+  line-height: 1.55;
+  box-shadow: 0 30px 80px rgba(10, 19, 48, 0.35);
+  overflow: hidden;
+}
+html body .press-dialog *,
+html body .press-dialog *::before,
+html body .press-dialog *::after {
+  box-sizing: border-box;
+}
+html body .press-dialog svg {
+  display: block;
+  max-width: none;
+  flex-shrink: 0;
+}
+html body .press-dialog[open] {
+  display: flex;
+  flex-direction: column;
+  animation: pressDialogIn 0.26s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+html body .press-dialog::backdrop {
+  background: rgba(10, 19, 48, 0.55);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  animation: pressBackdropIn 0.26s ease both;
+}
+html body .press-dialog.is-closing {
+  animation: pressDialogOut 0.18s ease both;
+}
+html body .press-dialog.is-closing::backdrop {
+  animation: pressBackdropOut 0.18s ease both;
+}
+
+html body .press-dialog__head {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 20px 18px 24px;
+  border-bottom: 1px solid #e5eaf5;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f7fe 100%);
+}
+html body .press-dialog__head-icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #1e40af;
+  color: #fff;
+}
+html body .press-dialog__head-icon svg,
+html body .press-dialog__close svg,
+html body .press-item__icon svg,
+html body .press-item__go {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+html body .press-dialog__head-icon svg {
+  width: 24px;
+  height: 24px;
+}
+html body .press-dialog__heading {
+  flex: 1;
+  min-width: 0;
+}
+html body .press-dialog__title {
+  width: 100%;
+  margin: 0;
+  color: #0a1330;
+  font-family: var(--ff-display, "Be Vietnam Pro", system-ui, sans-serif);
+  font-size: clamp(20px, 2vw, 24px);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0;
+  text-transform: none;
+}
+html body .press-dialog__sub {
+  margin: 4px 0 0;
+  color: #475569;
+  font-size: 16px;
+  line-height: 1.4;
+}
+html body .press-dialog__sub b {
+  color: #1e40af;
+}
+html body .press-dialog .press-dialog__close {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #dbe3f3;
+  border-radius: 50%;
+  background: #fff;
+  color: #0a1330;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+  box-shadow: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+}
+html body .press-dialog .press-dialog__close svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.2;
+}
+html body .press-dialog .press-dialog__close:hover {
+  border-color: #1e40af;
+  background: #eef2ff;
+  box-shadow: none;
+  transform: rotate(90deg);
+}
+html body .press-dialog .press-dialog__close:focus-visible {
+  outline: 3px solid #1e40af;
+  outline-offset: 2px;
+}
+
+html body .press-dialog .press-dialog__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 20px 24px 24px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  list-style: none;
+}
+html body .press-dialog__item {
+  margin: 0;
+  list-style: none;
+  animation: pressItemIn 0.3s ease both;
+  animation-delay: calc(var(--i, 0) * 25ms + 60ms);
+}
+
+html body .press-dialog .press-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  height: 100%;
+  padding: 14px 14px 14px 12px;
+  border: 1px solid #dbe3f3;
+  border-radius: 14px;
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s, background-color 0.2s;
+}
+html body .press-dialog .press-item:hover,
+html body .press-dialog .press-item:focus-visible {
+  color: inherit;
+  text-decoration: none;
+  border-color: #1e40af;
+  background: #f8faff;
+  box-shadow: 0 8px 22px rgba(30, 64, 175, 0.14);
+  transform: translateY(-2px);
+  outline: none;
+}
+html body .press-dialog .press-item:focus-visible {
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.35);
+}
+html body .press-item__icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #eef2ff;
+  color: #1e40af;
+}
+html body .press-item__icon svg {
+  width: 21px;
+  height: 21px;
+}
+html body .press-item__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+html body .press-item__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+}
+html body .press-item__outlet {
+  color: #1e3a8a;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+html body .press-item__type {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #334155;
+  font-family: var(--ff-display, "Be Vietnam Pro", system-ui, sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+html body .press-item__title {
+  color: #1e293b;
+  font-size: 16px;
+  line-height: 1.45;
+}
+html body .press-item:hover .press-item__title,
+html body .press-item:focus-visible .press-item__title {
+  color: #0a1330;
+}
+html body .press-item__go {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+  color: #94a3b8;
+  transition: color 0.2s, transform 0.2s;
+}
+html body .press-item:hover .press-item__go,
+html body .press-item:focus-visible .press-item__go {
+  color: #1e40af;
+  transform: translate(2px, -2px);
+}
+
+@keyframes pressDialogIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes pressDialogOut {
+  to { opacity: 0; transform: translateY(10px) scale(0.98); }
+}
+@keyframes pressBackdropIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes pressBackdropOut {
+  to { opacity: 0; }
+}
+@keyframes pressItemIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---- Toolbar & Filters inside #pressListDialog ---- */
+html body .press-dialog__tools {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 24px 12px;
+  border-bottom: 1px solid #e5eaf5;
+  background: #fff;
+}
+html body .press-tools__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 12px;
+}
+html body .press-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+html body .press-dialog .press-search {
+  position: relative;
+  display: block;
+  flex: 1 1 260px;
+  min-width: 0;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: inherit;
+}
+html body .press-search__icon {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%);
+  fill: none;
+  stroke: #64748b;
+  stroke-width: 2;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+html body .press-dialog .press-search__input,
+html body .press-dialog .press-select__input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 46px;
+  margin: 0;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  background-color: #fff;
+  color: #0a1330;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.2;
+  box-shadow: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+html body .press-dialog .press-search__input {
+  padding: 0 14px 0 44px;
+}
+html body .press-dialog .press-search__input::placeholder {
+  color: #64748b;
+}
+html body .press-dialog .press-search__input:focus,
+html body .press-dialog .press-select__input:focus {
+  border-color: #1e40af;
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.18);
+  outline: none;
+}
+
+html body .press-dialog .press-select {
+  display: flex;
+  flex: 0 1 220px;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: inherit;
+}
+html body .press-select__label {
+  color: #475569;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+html body .press-dialog .press-select__input {
+  padding: 0 40px 0 14px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e40af' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  cursor: pointer;
+}
+html body .press-dialog .press-select__input:hover {
+  box-shadow: none;
+}
+
+html body .press-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+html body .press-dialog .press-filter__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  margin: 0;
+  padding: 0 16px;
+  border: 1px solid #dbe3f3;
+  border-radius: 999px;
+  background: #fff;
+  color: #1e3a8a;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: none;
+  box-shadow: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+html body .press-filter__count {
+  min-width: 26px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #1e40af;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
+}
+html body .press-dialog .press-filter__btn:hover {
+  border-color: #1e40af;
+  background: #f8faff;
+  box-shadow: none;
+}
+html body .press-dialog .press-filter__btn[aria-pressed="true"] {
+  border-color: #1e40af;
+  background: #1e40af;
+  color: #fff;
+}
+html body .press-dialog .press-filter__btn[aria-pressed="true"] .press-filter__count {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+html body .press-dialog .press-filter__btn:focus-visible {
+  outline: 3px solid #1e40af;
+  outline-offset: 2px;
+}
+
+html body .press-active {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  min-height: 32px;
+}
+html body .press-active__count {
+  color: #475569;
+  font-size: 15px;
+  font-weight: 700;
+}
+html body .press-dialog .press-active__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+  margin: 0;
+  padding: 0 8px 0 12px;
+  border: 1px solid #c7d2fe;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #1e3a8a;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: none;
+  box-shadow: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+html body .press-active__tag svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+html body .press-dialog .press-active__tag:hover {
+  border-color: #1e40af;
+  box-shadow: none;
+}
+html body .press-dialog .press-active__clear {
+  min-height: 32px;
+  margin: 0;
+  padding: 0 6px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: #1e40af;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  box-shadow: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+html body .press-dialog .press-active__clear:hover {
+  box-shadow: none;
+}
+html body .press-dialog .press-active__tag:focus-visible,
+html body .press-dialog .press-active__clear:focus-visible {
+  outline: 3px solid #1e40af;
+  outline-offset: 2px;
+}
+
+html body .press-dialog__day {
+  grid-column: 1 / -1;
+  margin: 6px 0 -2px;
+  list-style: none;
+}
+html body .press-dialog__day:first-child {
+  margin-top: 0;
+}
+html body .press-dialog .press-dialog__day-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin: 0;
+  color: #0a1330;
+  font-family: var(--ff-display, "Be Vietnam Pro", system-ui, sans-serif);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0;
+  text-transform: none;
+}
+html body .press-dialog__day-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e5eaf5;
+}
+
+html body .press-dialog__empty {
+  grid-column: 1 / -1;
+  padding: 32px 16px;
+  text-align: center;
+  list-style: none;
+}
+html body .press-dialog__empty-title {
+  margin: 0 0 6px;
+  color: #0a1330;
+  font-size: 18px;
+  font-weight: 800;
+}
+html body .press-dialog__empty-text {
+  margin: 0 0 14px;
+  color: #475569;
+  font-size: 16px;
+}
+html body .press-dialog .press-active__clear--big {
+  min-height: 44px;
+  padding: 0 20px;
+  border: 1.5px solid #1e40af;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+html body .press-item__type--bao-dien-tu { background: #f1f5f9; color: #334155; }
+html body .press-item__type--truyen-hinh { background: #fef2f2; color: #b91c1c; }
+html body .press-item__type--phat-thanh { background: #f0fdf4; color: #15803d; }
+html body .press-item__type--mang-xa-hoi { background: #eef2ff; color: #1e40af; }
+
+html body .press-item__date {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.4;
+}
+html body .press-item__date svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+html body .press-item__new {
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: #dc2626;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+/* ---- Strip & Dialog Responsive ---- */
+@media (max-width: 760px) {
+  html body .press-dialog .press-dialog__list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  html body .strip--highlights .strip-track {
+    padding: 12px 0;
+  }
+  html body .strip--highlights .strip-chip {
+    font-size: 14px;
+  }
+  html body .strip--press .strip-press__label {
+    gap: 0;
+    padding: 0 10px 0 12px;
+  }
+  html body .strip--press .strip-press__open {
+    padding-right: 14px;
+  }
+  html body .strip--press .strip-press__label > span:last-child {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  html body .strip--press .strip-press__label-icon {
+    width: 34px;
+    height: 34px;
+  }
+  html body .strip--press .strip-chip--press .strip-chip__desc {
+    max-width: 230px;
+  }
+  html body .strip--press .strip-track {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  html body .press-dialog {
+    width: 100vw;
+    max-height: 88vh;
+    margin: auto 0 0;
+    border-radius: 20px 20px 0 0;
+  }
+  html body .press-dialog[open] {
+    display: block;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    animation-name: pressSheetIn;
+  }
+  html body .press-dialog.is-closing {
+    animation-name: pressSheetOut;
+  }
+  html body .press-dialog__head {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    padding: 16px 12px 14px 16px;
+    gap: 12px;
+  }
+  html body .press-dialog__head-icon {
+    width: 40px;
+    height: 40px;
+  }
+  html body .press-dialog__title {
+    font-size: 20px;
+  }
+  html body .press-dialog__sub {
+    font-size: 15px;
+  }
+  html body .press-dialog .press-dialog__close {
+    width: 44px;
+    height: 44px;
+  }
+  html body .press-dialog__tools {
+    gap: 10px;
+    padding: 12px;
+  }
+  html body .press-dialog .press-search {
+    flex-basis: 100%;
+  }
+  html body .press-dialog .press-select {
+    flex: 1 1 0;
+  }
+  html body .press-filter {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+  html body .press-filter::-webkit-scrollbar {
+    display: none;
+  }
+  html body .press-dialog .press-filter__btn {
+    flex: none;
+    padding: 0 14px;
+    font-size: 15px;
+  }
+  html body .press-dialog .press-dialog__list {
+    overflow: visible;
+    gap: 10px;
+    padding: 14px 12px calc(18px + env(safe-area-inset-bottom));
+  }
+}
+
+@keyframes pressSheetIn {
+  from { transform: translateY(100%); }
+  to { transform: none; }
+}
+@keyframes pressSheetOut {
+  to { transform: translateY(100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body .strip.strip--highlights {
+    overflow-x: auto;
+  }
+  html body .strip--highlights .strip-track {
+    animation: none;
+  }
+  html body .strip--highlights .strip-group[aria-hidden="true"] {
+    display: none;
+  }
+  html body .strip.strip--press {
+    overflow: hidden;
+  }
+  html body .strip--press .strip-press__viewport {
+    overflow-x: auto;
+  }
+  html body .press-dialog[open],
+  html body .press-dialog::backdrop,
+  html body .press-dialog__item {
+    animation: none;
+  }
+  html body .press-dialog .press-item,
+  html body .press-dialog .press-dialog__close,
+  html body .strip--press .strip-press__label-icon {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   4. Press News Rotator (F9 — ported from homepage-news-rotator.css + resets)
+   ========================================================================== */
+html body .news-rot {
+  --news-interval: 6500ms;
+  --news-navy: #0a1330;
+  --news-blue: #1e40af;
+  --news-blue-dark: #1e3a8a;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  padding: clamp(44px, 4.5vw, 72px) 24px;
+  font-family: var(--ff-body, "SVN-Gilroy", "Be Vietnam Pro", system-ui, sans-serif);
+  background:
+    radial-gradient(60% 80% at 0% 100%, rgba(191, 219, 254, 0.45), transparent 70%),
+    radial-gradient(50% 60% at 100% 0%, rgba(219, 234, 254, 0.6), transparent 70%),
+    #f5f8fd;
+}
+html body .news-rot *,
+html body .news-rot *::before,
+html body .news-rot *::after {
+  box-sizing: border-box;
+}
+html body .news-rot[hidden],
+html body .news-rot [hidden] {
+  display: none !important;
+}
+html body .news-rot article,
+html body .news-rot header {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+html body .news-rot h3 {
+  width: auto;
+  letter-spacing: normal;
+  text-transform: none;
+}
+html body .news-rot p {
+  margin: 0;
+}
+html body .news-rot button {
+  margin: 0;
+  padding: 0;
+  min-height: 0;
+  border-radius: 0;
+  font-family: inherit;
+  font-weight: inherit;
+  letter-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  box-shadow: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+html body .news-rot button:hover {
+  box-shadow: none;
+}
+html body .news-rot img {
+  margin: 0;
+  padding: 0;
+}
+html body .news-rot svg {
+  display: block;
+  max-width: none;
+  flex-shrink: 0;
+}
+
+.news-rot__inner {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.7fr) minmax(0, 1.5fr) minmax(0, 1.25fr);
+  gap: clamp(20px, 2.2vw, 36px);
+  align-items: start;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* ---- Left column: intro ---- */
+.news-rot__eyebrow {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: #dbeafe;
+  color: var(--news-blue);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+html body .news-rot .news-rot__title {
+  margin: 16px 0 0;
+  color: var(--news-navy);
+  font-family: var(--ff-display, "Be Vietnam Pro", system-ui, sans-serif);
+  font-size: clamp(28px, 2.2vw, 38px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.news-rot__title span:last-child {
+  white-space: nowrap;
+}
+@media (min-width: 1100px) {
+  .news-rot__title span {
+    display: block;
+  }
+}
+.news-rot__line {
+  display: block;
+  width: 56px;
+  height: 4px;
+  margin: 16px 0 18px;
+  border-radius: 999px;
+  background: #2563eb;
+}
+html body .news-rot .news-rot__sub {
+  margin: 0;
+  color: #334155;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ---- Card base ---- */
+.hpo-news-card {
+  position: relative;
+  min-width: 0;
+  color: var(--news-navy);
+}
+html body .news-rot .hpo-news-card a {
+  color: inherit;
+  text-decoration: none;
+}
+html body .news-rot .hpo-news-card a:hover {
+  color: inherit;
+}
+.hpo-news-card__media {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #0a1330, #1e3a8a);
+}
+.hpo-news-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.hpo-news-card__body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+html body .news-rot .hpo-news-card__title {
+  margin: 0;
+  font-family: var(--ff-display, "Be Vietnam Pro", system-ui, sans-serif);
+  font-weight: 700;
+  letter-spacing: normal;
+}
+html body .news-rot .hpo-news-card__title a {
+  color: var(--news-blue-dark);
+}
+html body .news-rot .hpo-news-card__desc {
+  margin: 0;
+  color: #334155;
+}
+.hpo-news-card__meta {
+  color: #475569;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.hpo-news-card__chip,
+.hpo-news-card__flag {
+  position: absolute;
+  top: 12px;
+  z-index: 1;
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.hpo-news-card__chip {
+  left: 12px;
+  background: var(--news-navy);
+  color: #facc15;
+}
+.hpo-news-card__flag {
+  right: 12px;
+  background: #dc2626;
+  color: #fff;
+  text-transform: uppercase;
+}
+.hpo-news-card svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+html body .news-rot .hpo-news-card__go {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 2px solid var(--news-blue);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--news-blue) !important;
+  font-size: 16px;
+  font-weight: 800;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+html body .news-rot .hpo-news-card__go:hover {
+  background: var(--news-blue);
+  color: #fff !important;
+}
+.hpo-news-card__src {
+  display: none;
+}
+.hpo-news-card__pick {
+  display: none;
+}
+.hpo-news-card a:focus-visible,
+.hpo-news-card__pick:focus-visible,
+.news-rot__btn:focus-visible,
+.news-rot__all:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
+/* ---- Big featured card ---- */
+.news-rot__feature {
+  position: relative;
+  min-width: 0;
+}
+.hpo-news-card[data-slot="big"] .hpo-news-card__media {
+  aspect-ratio: 16 / 9;
+  box-shadow: 0 14px 34px rgba(15, 35, 80, 0.15);
+}
+.hpo-news-card[data-slot="big"] .hpo-news-card__media img {
+  animation: news-kenburns calc(var(--news-interval) + 1200ms) ease-out both;
+}
+.news-rot.is-paused .hpo-news-card[data-slot="big"] .hpo-news-card__media img {
+  animation-play-state: paused;
+}
+.hpo-news-card[data-slot="big"] .hpo-news-card__chip {
+  display: inline-flex;
+}
+.hpo-news-card[data-slot="big"] .hpo-news-card__flag.is-on {
+  display: inline-flex;
+}
+.hpo-news-card[data-slot="big"] .hpo-news-card__body {
+  gap: 8px;
+  padding-top: 14px;
+}
+html body .news-rot .hpo-news-card[data-slot="big"] .hpo-news-card__title {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: clamp(20px, 1.55vw, 24px);
+  line-height: 1.3;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+html body .news-rot .hpo-news-card[data-slot="big"] .hpo-news-card__title a:hover {
+  color: var(--news-blue);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.hpo-news-card[data-slot="big"] .hpo-news-card__desc {
+  font-size: 16px;
+  line-height: 1.55;
+}
+.hpo-news-card[data-slot="big"] .hpo-news-card__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+}
+html body .news-rot .hpo-news-card[data-slot="big"] .hpo-news-card__go {
+  display: inline-flex;
+}
+.hpo-news-card[data-slot="big"] .hpo-news-card__media:hover img {
+  transform: scale(1.03);
+}
+@keyframes news-kenburns {
+  from { transform: scale(1.1); }
+  to { transform: scale(1); }
+}
+
+/* Progress bar */
+.news-rot__track {
+  position: absolute;
+  right: 16px;
+  bottom: 12px;
+  left: 16px;
+  height: 4px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+}
+.news-rot__track i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #facc15;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.news-rot__track i.is-running {
+  animation: news-progress var(--news-interval) linear forwards;
+}
+.news-rot.is-paused .news-rot__track i {
+  animation-play-state: paused;
+}
+@keyframes news-progress {
+  to { transform: scaleX(1); }
+}
+
+/* ---- Right column: 3 small cards ---- */
+.news-rot__list {
+  display: grid;
+  gap: 12px;
+}
+.hpo-news-card[data-slot="s"] {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 8px 14px 8px 8px;
+  border: 1px solid transparent;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(15, 35, 80, 0.06);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.hpo-news-card[data-slot="s"]:hover {
+  border-color: #93b4f0;
+  box-shadow: 0 12px 28px rgba(15, 35, 80, 0.12);
+  transform: translateY(-2px);
+}
+.hpo-news-card[data-slot="s"] .hpo-news-card__media {
+  flex: none;
+  width: 38%;
+  max-width: 170px;
+  aspect-ratio: 3 / 2;
+  border-radius: 12px;
+}
+.hpo-news-card[data-slot="s"] .hpo-news-card__body {
+  gap: 4px;
+}
+html body .news-rot .hpo-news-card[data-slot="s"] .hpo-news-card__title {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 17px;
+  line-height: 1.35;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.hpo-news-card[data-slot="s"] .hpo-news-card__desc,
+.hpo-news-card[data-slot="s"] .hpo-news-card__foot {
+  display: none;
+}
+.hpo-news-card[data-slot="s"] .hpo-news-card__src {
+  display: block;
+  color: #475569;
+  font-size: 16px;
+  line-height: 1.4;
+}
+html body .news-rot .hpo-news-card[data-slot="s"] .hpo-news-card__pick {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+}
+html body .news-rot .hpo-news-card[data-slot="s"] .hpo-news-card__pick:hover {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* ---- Control bar ---- */
+.news-rot__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+html body .news-rot .news-rot__all {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  margin: 0;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 999px;
+  background: #2563eb;
+  color: #fff;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: none;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.28);
+  transition: background 0.2s ease;
+}
+html body .news-rot .news-rot__all:hover {
+  background: var(--news-blue-dark);
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.28);
+}
+.news-rot__all svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+html body .news-rot .news-rot__btn {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 14px;
+  background: #e2eaf7;
+  color: var(--news-blue);
+  box-shadow: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+html body .news-rot .news-rot__btn:hover {
+  background: var(--news-blue);
+  color: #fff;
+  box-shadow: none;
+}
+.news-rot__btn svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.news-rot__btn .i-play {
+  display: none;
+}
+.news-rot.is-user-paused .news-rot__btn .i-play {
+  display: block;
+}
+.news-rot.is-user-paused .news-rot__btn .i-pause {
+  display: none;
+}
+.news-rot__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---- View Transitions morph ---- */
+html.news-vt {
+  view-transition-name: none;
+}
+html.news-vt::view-transition {
+  pointer-events: none;
+}
+html.news-vt::view-transition-group(*) {
+  animation-duration: 0.7s;
+  animation-timing-function: cubic-bezier(0.22, 0.8, 0.24, 1);
+}
+html.news-vt::view-transition-old(*),
+html.news-vt::view-transition-new(*) {
+  height: 100%;
+  object-fit: cover;
+  overflow: clip;
+}
+.news-rot.no-vt .hpo-news-card.is-enter {
+  animation: news-fade-in 0.5s ease both;
+}
+@keyframes news-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---- Tablet & Mobile ---- */
+@media (max-width: 1099px) {
+  .news-rot__inner {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  }
+  .news-rot__intro {
+    grid-column: 1 / -1;
+    max-width: 760px;
+  }
+  html body .news-rot .news-rot__title {
+    margin-top: 12px;
+  }
+  .news-rot__line {
+    margin: 12px 0 14px;
+  }
+  .hpo-news-card[data-slot="s"] .hpo-news-card__media {
+    width: 40%;
+  }
+}
+
+@media (max-width: 767px) {
+  html body .news-rot {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+  .news-rot__inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+  html body .news-rot .hpo-news-card[data-slot="big"] .hpo-news-card__title {
+    font-size: 20px;
+    -webkit-line-clamp: 3;
+  }
+  .hpo-news-card[data-slot="s"] .hpo-news-card__media {
+    width: 112px;
+  }
+  html body .news-rot .hpo-news-card[data-slot="s"] .hpo-news-card__title {
+    font-size: 16px;
+    -webkit-line-clamp: 3;
+  }
+  html body .news-rot .news-rot__all {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+  html body .news-rot .news-rot__btn {
+    flex: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hpo-news-card[data-slot="big"] .hpo-news-card__media img,
+  .news-rot__track i.is-running {
+    animation: none;
+  }
+  .hpo-news-card__media img,
+  .hpo-news-card[data-slot="s"] {
+    transition: none;
+  }
+}

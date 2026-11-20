@@ -1,0 +1,409 @@
+/**
+ * HPO Design System Headings, Gradient Text, Upright Emphasis & Brand Scrollbar
+ * Sources:
+ *  - Hiep_Phat_Design_System_v1.html (.hp-text-grad--*, .hp-grad-bar)
+ *  - homepage-headings-design-system.css
+ *  - homepage-section-headings-compact.css
+ *  - site-heading-emphasis-upright.css
+ *  - site-scrollbar-brand-blue.css
+ */
+
+:root {
+  --hp-ds-title-blue: linear-gradient(100deg, #1e3a8a 0%, #2b26fb 45%, #2b26fb 55%, #1e3a8a 100%);
+  --hp-ds-title-red: linear-gradient(100deg, #b91c1c 0%, #ea1e24 45%, #ea1e24 55%, #b91c1c 100%);
+  --hp-ds-lead-bar: linear-gradient(90deg, #2b26fb, #faec1a);
+  --hp-ds-glow: radial-gradient(ellipse, rgba(43, 38, 251, 0.09) 0%, rgba(43, 38, 251, 0.03) 44%, transparent 72%);
+  --hp-section-title-size: clamp(26px, calc(2.2vw + 10px), 40px);
+}
+
+/* ==========================================================================
+   1. DS v1 Gradient Text & Lead Bar Utilities
+   ========================================================================== */
+.hp-text-grad {
+  display: inline-block;
+  padding-block: 0.1em;
+  color: var(--hp-grad-solid, #1e3a8a);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .hp-text-grad {
+    background-image: var(--hp-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.hp-text-grad--xanh {
+  --hp-grad: linear-gradient(100deg, #1e3a8a 0%, #2b26fb 100%);
+  --hp-grad-solid: #1e3a8a;
+}
+
+.hp-text-grad--do {
+  --hp-grad: linear-gradient(100deg, #b91c1c 0%, #ea1e24 100%);
+  --hp-grad-solid: #b91c1c;
+}
+
+.hp-text-grad--logo {
+  --hp-grad: linear-gradient(100deg, #2b26fb 0%, #8000e7 25%, #b200b4 50%, #d50077 75%, #ea1e24 100%);
+  --hp-grad-solid: #2b26fb;
+}
+
+.hp-text-grad--nang {
+  --hp-grad: linear-gradient(100deg, #faec1a 0%, #ffcd3d 25%, #ffb03c 50%, #ff9033 75%, #ff6b35 100%);
+  --hp-grad-solid: #faec1a;
+}
+
+.hp-text-grad--troi {
+  --hp-grad: linear-gradient(100deg, #ffffff 0%, #93b4ff 100%);
+  --hp-grad-solid: #ffffff;
+}
+
+.hp-grad-bar {
+  display: block;
+  width: 96px;
+  height: 6px;
+  border-radius: 3px;
+  background-image: linear-gradient(90deg, #2b26fb 0%, #0089b2 25%, #00b7ab 50%, #47e563 75%, #faec1a 100%);
+}
+
+/* ==========================================================================
+   2. Homepage Section Gradient Headings & Lead Bars
+      (Does NOT alter [hpo_hero] Slide 1 .hpo-digital-title)
+   ========================================================================== */
+html body .company-banner .company-banner-heading h2,
+html body .brand-protection__head h2,
+html body .brand-protection .brand-protection__head h2,
+html body .inspection-record .inspection-record__heading h2,
+html body .courses-section .section-head__title,
+html body .platform-v2-title--new-color,
+html body .hpo-unified-title-wrap:not(.hpo-unified-title-wrap--inverse) .hpo-unified-title,
+html body .intro-video__head h2 > span,
+html body .intro-video__head h2 > em {
+  background-image: var(--hp-ds-title-blue);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #1e3a8a;
+  text-shadow: none;
+  filter: drop-shadow(0 8px 18px rgba(43, 38, 251, 0.14));
+  animation: hp-ds-title-sheen 7s ease-in-out infinite alternate;
+}
+
+/* Ensure [hpo_hero] Slide 2 heading preserves Vietnamese diacritics and balanced wrap */
+html body .company-banner .company-banner-heading h2 {
+  padding-block: 0.1em;
+  text-wrap: balance;
+}
+
+/* Second clause of two-part heading: Red gradient */
+html body .intro-video__head h2 > em {
+  background-image: var(--hp-ds-title-red);
+  color: #b91c1c;
+  font-style: normal;
+  filter: drop-shadow(0 8px 18px rgba(234, 30, 36, 0.12));
+}
+
+html body .intro-video__head h2 {
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: #1e3a8a;
+}
+
+html body .intro-video__head h2 > em .intro-video__nowrap {
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes hp-ds-title-sheen {
+  from { background-position: 0% 50%; }
+  to { background-position: 100% 50%; }
+}
+
+/* Base positioning so lead bar ::after renders safely on [hpo_hero] Slide 2 and sections */
+html body .company-banner .company-banner-heading,
+html body .brand-protection__head,
+html body .hpo-unified-title-wrap,
+html body .intro-video__head {
+  position: relative;
+}
+
+html body .company-banner .company-banner-heading::after,
+html body .brand-protection__head::after,
+html body .brand-protection .brand-protection__head::after,
+html body .hpo-unified-title-wrap::after,
+html body .intro-video__head::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 96px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--hp-ds-lead-bar);
+  box-shadow: 0 4px 12px rgba(43, 38, 251, 0.2);
+}
+
+html body .company-banner .company-banner-heading {
+  padding-top: 34px;
+  padding-bottom: 14px;
+}
+
+html body .brand-protection__head,
+html body .hpo-unified-title-wrap,
+html body .intro-video__head {
+  padding-top: 26px;
+  padding-bottom: 0;
+}
+
+/* Platform V2: move dash div above heading via flex order */
+html body .platform-v2-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+html body .platform-v2-head .platform-v2-dash {
+  order: -1;
+  width: 96px;
+  height: 6px;
+  margin: 0 auto 20px;
+  border-radius: 3px;
+  background: var(--hp-ds-lead-bar);
+  box-shadow: 0 4px 12px rgba(43, 38, 251, 0.2);
+}
+
+html body .platform-v2-head .platform-v2-dash span {
+  background: var(--hp-ds-lead-bar);
+}
+
+html body .platform-v2-head .platform-v2-dash i {
+  background: #2b26fb;
+}
+
+/* Heading background glow */
+html body .brand-protection__head::before,
+html body .brand-protection .brand-protection__head::before,
+html body .hpo-unified-title-wrap::before,
+html body .digital-learning-materials__head::before {
+  background: var(--hp-ds-glow);
+}
+
+/* Courses subtitle & separator */
+html body .courses-section .section-head__subtitle {
+  color: #1e3a8a;
+}
+
+html body .courses-section .section-head__subtitle .sep {
+  color: #ea1e24;
+}
+
+/* ==========================================================================
+   3. Compact Section Headings & Spacing (homepage-section-headings-compact.css)
+   ========================================================================== */
+html body .brand-protection,
+html body .digital-learning-materials[aria-labelledby="digital-platform-title"],
+html body .intro-video,
+html body .platform-v2,
+html body .award-slider {
+  padding-top: 56px;
+}
+
+html body .courses-section {
+  padding-top: 48px;
+  min-height: auto;
+  align-items: flex-start;
+}
+
+html body .brand-protection__head,
+html body .brand-protection .brand-protection__head,
+html body .digital-learning-materials[aria-labelledby="digital-platform-title"] .digital-learning-materials__head,
+html body .intro-video__head {
+  padding-top: 20px;
+  margin-bottom: 28px;
+}
+
+html body .platform-v2-head.hpo-unified-title-wrap,
+html body .platform-v2-head {
+  margin-bottom: 24px;
+}
+
+html body .courses-section .section-head {
+  margin-bottom: 28px;
+}
+
+html body .brand-protection__head h2,
+html body .brand-protection .brand-protection__head h2,
+html body #digital-platform-title,
+html body .intro-video__head h2,
+html body .platform-v2-head .platform-v2-title,
+html body .courses-section .section-head__title {
+  font-size: var(--hp-section-title-size);
+  line-height: 1.2;
+  padding-top: 0.12em;
+  padding-bottom: 0.04em;
+  margin-bottom: 0;
+  text-wrap: balance;
+}
+
+html body #digital-platform-title .infra-title__line {
+  padding: 0.12em 0.02em 0.03em;
+  text-wrap: balance;
+}
+
+html body .brand-protection__head p,
+html body .brand-protection .brand-protection__head p {
+  margin-top: 10px;
+  font-size: clamp(15px, calc(0.5vw + 10px), 17px);
+}
+
+html body .courses-section .section-head__subtitle {
+  margin-top: 8px;
+  font-size: clamp(12px, calc(0.3vw + 10px), 14px);
+  letter-spacing: 0.06em;
+}
+
+html body .courses-section .section-head__lane {
+  display: none;
+}
+
+html body .digital-learning-materials[aria-labelledby="digital-platform-title"] .infra-layout,
+html body .brand-protection .brand-cert-grid,
+html body .intro-video .intro-video__frame {
+  margin-top: 0;
+}
+
+html body .award-slider__heading > .hpo-unified-title-wrap {
+  padding-top: 20px;
+  padding-bottom: 0;
+}
+
+html body .award-slider__heading .hpo-unified-title {
+  font-size: var(--hp-section-title-size);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+html body .award-slider__heading-sub {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+html body .award-slider__body {
+  margin-top: 24px;
+}
+
+@media (max-width: 600px) {
+  html body .brand-protection,
+  html body .digital-learning-materials[aria-labelledby="digital-platform-title"],
+  html body .intro-video,
+  html body .platform-v2,
+  html body .award-slider {
+    padding-top: 36px;
+  }
+
+  html body .courses-section {
+    padding-top: 36px;
+  }
+
+  html body .brand-protection__head,
+  html body .brand-protection .brand-protection__head,
+  html body .digital-learning-materials[aria-labelledby="digital-platform-title"] .digital-learning-materials__head,
+  html body .intro-video__head {
+    padding-top: 16px;
+    margin-bottom: 20px;
+  }
+
+  html body .courses-section .section-head,
+  html body .platform-v2-head {
+    margin-bottom: 20px;
+  }
+}
+
+/* ==========================================================================
+   4. Upright Heading Emphasis (site-heading-emphasis-upright.css)
+   ========================================================================== */
+html body h1 em,
+html body h2 em,
+html body h3 em,
+html body h4 em {
+  font-style: normal !important;
+}
+
+html body .about-hero h1 em,
+html body .qr-hero h1 em {
+  color: #facc15;
+}
+
+html body .lookup-hero h1 em {
+  color: #facc15;
+  font-family: var(--ff-display), sans-serif;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   5. Brand Blue Page Scrollbar (site-scrollbar-brand-blue.css)
+   ========================================================================== */
+html::-webkit-scrollbar {
+  width: 12px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #eef1f8;
+}
+
+html::-webkit-scrollbar-thumb {
+  min-height: 48px;
+  border: 3px solid #eef1f8;
+  border-radius: 999px;
+  background: #2b26fb;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+html::-webkit-scrollbar-thumb:active {
+  background: #1e3a8a;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-color: #2b26fb #eef1f8;
+  }
+}
+
+/* ==========================================================================
+   6. Accessibility: Forced Colors & Reduced Motion
+   ========================================================================== */
+@media (forced-colors: active) {
+  .hp-text-grad,
+  html body .company-banner .company-banner-heading h2,
+  html body .brand-protection__head h2,
+  html body .courses-section .section-head__title,
+  html body .platform-v2-title--new-color,
+  html body .hpo-unified-title,
+  html body .intro-video__head h2 > span,
+  html body .intro-video__head h2 > em {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: CanvasText;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body .company-banner .company-banner-heading h2,
+  html body .brand-protection__head h2,
+  html body .brand-protection .brand-protection__head h2,
+  html body .courses-section .section-head__title,
+  html body .platform-v2-title--new-color,
+  html body .hpo-unified-title,
+  html body .hpo-unified-title-wrap:not(.hpo-unified-title-wrap--inverse) .hpo-unified-title,
+  html body .intro-video__head h2 > span,
+  html body .intro-video__head h2 > em {
+    animation: none !important;
+  }
+}

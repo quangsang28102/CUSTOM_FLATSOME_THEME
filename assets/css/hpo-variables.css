@@ -1,0 +1,403 @@
+/**
+ * HPO Design Tokens & Typography
+ * Project: HPO Flatsome Child Theme
+ */
+
+/* ==========================================================================
+   1. @font-face Declarations
+   - Tiêu đề, số liệu: Be Vietnam Pro
+   - Nội dung: SVN-Gilroy
+   ========================================================================== */
+
+/* SVN-Gilroy — 300 → 900 (không có bản nghiêng) */
+@font-face {
+  font-family: "SVN-Gilroy";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../fonts/svn-gilroy/svn-gilroy-light.woff2") format("woff2");
+}
+@font-face {
+  font-family: "SVN-Gilroy";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/svn-gilroy/svn-gilroy-regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "SVN-Gilroy";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/svn-gilroy/svn-gilroy-medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "SVN-Gilroy";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/svn-gilroy/svn-gilroy-semibold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "SVN-Gilroy";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/svn-gilroy/svn-gilroy-bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "SVN-Gilroy";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/svn-gilroy/svn-gilroy-xbold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "SVN-Gilroy";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../fonts/svn-gilroy/svn-gilroy-black.woff2") format("woff2");
+}
+
+/* Be Vietnam Pro — Thường 400 → 900, nghiêng 400/600/700 */
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/be-vietnam-pro/be-vietnam-pro-400-italic-vietnamese.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/be-vietnam-pro/be-vietnam-pro-400-italic-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/be-vietnam-pro/be-vietnam-pro-600-italic-vietnamese.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/be-vietnam-pro/be-vietnam-pro-600-italic-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/be-vietnam-pro/be-vietnam-pro-700-italic-vietnamese.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/be-vietnam-pro/be-vietnam-pro-700-italic-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/be-vietnam-pro/be-vietnam-pro-400-vietnamese.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/be-vietnam-pro/be-vietnam-pro-400-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/be-vietnam-pro/be-vietnam-pro-500-vietnamese.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/be-vietnam-pro/be-vietnam-pro-500-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/be-vietnam-pro/be-vietnam-pro-600-vietnamese.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/be-vietnam-pro/be-vietnam-pro-600-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/be-vietnam-pro/be-vietnam-pro-700-vietnamese.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/be-vietnam-pro/be-vietnam-pro-700-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/be-vietnam-pro/be-vietnam-pro-800-vietnamese.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/be-vietnam-pro/be-vietnam-pro-800-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../fonts/be-vietnam-pro/be-vietnam-pro-900-vietnamese.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../fonts/be-vietnam-pro/be-vietnam-pro-900-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ==========================================================================
+   2. Design Tokens (:root / Light) — HPO + Design System v1
+   ========================================================================== */
+:root,
+[data-theme="light"] {
+  /* Logo Identity Colors (DS v1) */
+  --logo-blue: #2b26fb;
+  --logo-yellow: #faec1a; /* Chỉ dùng trên nền tối/navy */
+  --logo-red: #ea1e24;
+  --logo-navy: #2d3489;
+  --logo-ring: #4455a3;
+
+  /* Legacy Brand Aliases (WEB-HPO-V2 & hpo-elements.css compatibility) */
+  --brand-blue: var(--logo-blue);
+  --brand-yellow: var(--logo-yellow);
+  --brand-navy: var(--logo-navy);
+  --em-red: var(--logo-red);
+
+  /* Brand Blues & Navy Scale */
+  --blue-50: #eff6ff;
+  --blue-100: #dbeafe;
+  --blue-200: #bfdbfe;
+  --blue-500: #3b82f6;
+  --blue-600: #1e40af;        /* Deep navy */
+  --blue-700: #1e3a8a;
+  --blue-900: #172554;
+
+  /* DS v1 Semantic Action & Status Colors */
+  --primary: #1e40af;         /* 8.7:1 on white */
+  --primary-hover: #1e3a8a;
+  --on-primary: #ffffff;
+  --primary-soft: #eff6ff;
+  --primary-strong: #1e3a8a;
+
+  --red: #dc2626;
+  --red-hover: #b91c1c;
+  --on-red: #ffffff;
+  --red-soft: #fef2f2;
+  --red-strong: #b91c1c;
+  --red-600: var(--red);
+
+  --yellow: #facc15;          /* Chỉ dùng trên nền tối/navy */
+  --yellow-400: var(--yellow);
+
+  --orange: #ff6b35;          /* Chỉ trang trí, KHÔNG làm màu chữ */
+  --orange-soft: #fff4ed;
+  --orange-strong: #c2410c;
+  --accent: var(--orange);
+  --accent-soft: #ffefe6;
+
+  --green: #15803d;
+  --on-green: #ffffff;
+  --green-soft: #f0fdf4;
+
+  --warn: #f59e0b;
+  --warn-soft: #fffbeb;
+  --warn-ink: #78350f;
+  --focus-ring: #1e40af;      /* Accessible >=3:1 focus ring */
+
+  /* Neutral Ink Scale (Calibrated WCAG AA+ hierarchy) */
+  --ink: #0a1330;             /* DS v1 primary ink (18.3:1 on white) */
+  --ink-soft: #334155;        /* DS v1 secondary ink (10.4:1 on white) */
+  --ink-on-navy: #dbe4f5;
+  --on-navy: #ffffff;
+
+  --ink-900: #0a1330;         /* Headings & primary text */
+  --ink-700: #1e293b;         /* Strong body text */
+  --ink-500: #334155;         /* Leads & descriptions (DS --ink-soft) */
+  --ink-400: #475569;         /* Meta, captions (7.5:1 on white) */
+  --ink-300: #5b6782;         /* Subtle labels (5.67:1 on white, 5.31:1 on tint) */
+
+  /* Surfaces & Lines
+     NOTE: Keep --surface as #f5f7fc for WEB-HPO-V2 & hpo-elements.css parity;
+     use --surface-page (#ffffff) and DS v1 --surface-tint / --surface-raised / --surface-navy. */
+  --surface-page: #ffffff;
+  --surface: #f5f7fc;
+  --surface-2: #edf1fa;
+  --surface-tint: #f5f7fc;
+  --surface-tint-2: #eaf0fa;
+  --surface-raised: #ffffff;
+  --surface-navy: #172554;
+  --white: #ffffff;
+  --line: #dbe3f0;
+  --line-strong: #b8c5db;
+
+  /* Fixed Print / Paper Tokens (DS v1) */
+  --paper: #ffffff;
+  --paper-ink: #0a1330;
+  --paper-ink-soft: #334155;
+  --paper-tint: #eff6ff;
+  --paper-primary: #1e40af;
+  --paper-red: #dc2626;
+  --paper-green: #15803d;
+
+  /* Typography Families */
+  --ff-display: "Be Vietnam Pro", system-ui, sans-serif;
+  --ff-body: "SVN-Gilroy", "Be Vietnam Pro", system-ui, sans-serif;
+  --ff-serif: "Be Vietnam Pro", system-ui, sans-serif;
+  --font-head: "Be Vietnam Pro", "SVN-Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "SVN-Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Motion Curves */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur: 0.28s;
+  --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Shadows (DS v1 + legacy --shadow-blue) */
+  --shadow-sm: 0 1px 2px rgba(10, 19, 48, 0.06), 0 1px 1px rgba(10, 19, 48, 0.04);
+  --shadow-md: 0 10px 28px -12px rgba(10, 19, 48, 0.22), 0 2px 6px rgba(10, 19, 48, 0.06);
+  --shadow-lg: 0 24px 60px -24px rgba(10, 19, 48, 0.32);
+  --shadow-blue: 0 18px 44px -12px rgba(30, 64, 175, 0.32);
+  --shadow-btn-primary: 0 12px 28px -14px rgba(30, 64, 175, 0.75);
+
+  /* Spacing Scale (DS v1) */
+  --space-6: 6px;
+  --space-10: 10px;
+  --space-14: 14px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-28: 28px;
+  --space-32: 32px;
+  --space-56: 56px;
+  --space-96: 96px;
+
+  /* Border Radii (DS v1 + legacy --radius-full) */
+  --radius-sm: 10px;
+  --radius-btn: 12px;
+  --radius-badge: 14px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+  --radius-full: 9999px;
+
+  /* Control & Layout Sizing (DS v1) */
+  --control-height: 52px;
+  --control-height-sm: 48px;
+  --container: 1240px;
+  --nav-height: 60px;
+}
+
+/* ==========================================================================
+   3. Dark Theme Tokens ([data-theme="dark"]) — DS v1
+   ========================================================================== */
+[data-theme="dark"] {
+  --surface: #0a1330;
+  --surface-page: #0a1330;
+  --surface-tint: #101a3a;
+  --surface-tint-2: #16224a;
+  --surface-raised: #15204a;
+  --surface-navy: #050b20;
+  --line: #26335c;
+  --line-strong: #3a4a7a;
+  --paper: #ffffff;
+  --paper-ink: #0a1330;
+  --paper-ink-soft: #334155;
+  --paper-tint: #eff6ff;
+  --paper-primary: #1e40af;
+  --paper-red: #dc2626;
+  --paper-green: #15803d;
+  --ink: #eef2fb;
+  --ink-soft: #b9c4dc;
+  --ink-on-navy: #dbe4f5;
+  --ink-900: #eef2fb;
+  --ink-700: #dbe4f5;
+  --ink-500: #b9c4dc;
+  --ink-400: #94a3b8;
+  --ink-300: #7c8db5;
+  --on-navy: #ffffff;
+  --primary: #93b4ff;
+  --primary-hover: #b5ccff;
+  --on-primary: #0a1330;
+  --primary-soft: #1a2a5c;
+  --primary-strong: #c7d7ff;
+  --red: #f87171;
+  --red-hover: #fca5a5;
+  --on-red: #0a1330;
+  --red-soft: #3a1218;
+  --red-strong: #fecaca;
+  --yellow: #facc15;
+  --orange: #ff6b35;
+  --orange-soft: #3a1d0e;
+  --orange-strong: #fdba74;
+  --green: #4ade80;
+  --on-green: #0a1330;
+  --green-soft: #0f2e1c;
+  --warn: #f59e0b;
+  --warn-soft: #2d2208;
+  --warn-ink: #fcd34d;
+  --focus-ring: #93b4ff;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 10px 28px -12px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 24px 60px -24px rgba(0, 0, 0, 0.7);
+  --shadow-btn-primary: none;
+}

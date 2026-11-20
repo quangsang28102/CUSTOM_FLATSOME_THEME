@@ -1,0 +1,19 @@
+/*
+Theme Name: Flatsome Child - HPO
+Theme URI: https://github.com/quangsang28102/CUSTOM_FLATSOME_THEME
+Description: Theme con cao cấp phát triển trên nền tảng Flatsome dành cho HPO, tích hợp UX Builder kéo thả trực quan và tối ưu Core Web Vitals.
+Author: Quang Sang
+Author URI: https://github.com/quangsang28102
+Template: flatsome
+Version: 1.0.0
+Text Domain: flatsome-child
+*/
+
+/*************** ADD CUSTOM CSS HERE.   ***************/
+
+
+@media only screen and (max-width: 48em) {
+/*************** ADD MOBILE ONLY CSS HERE  ***************/
+
+
+}

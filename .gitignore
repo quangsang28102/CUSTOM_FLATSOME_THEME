@@ -1,0 +1,10 @@
+# Hệ điều hành & Trình soạn thảo
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# File tạm & Log
+*.log
