@@ -1,115 +1,136 @@
 <?php
 /**
- * UX Builder Element: HPO Course Info Panel
+ * UX Builder Element: HPO Course Info Panel (14/11/2026 Redesign)
  * Tag: [hpo_course_info]
  */
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 add_ux_builder_shortcode( 'hpo_course_info', array(
-    'name'     => __( 'HPO Course Info Panel', 'flatsome-child' ),
-    'category' => __( 'HPO Elements', 'flatsome-child' ),
-    'priority' => 8,
+    'name'     => __( 'HPO Course Info Panel', 'flatsome' ),
+    'category' => __( 'HPO Elements', 'flatsome' ),
+    'priority' => 31,
     'options'  => array(
-        'duration_group' => array(
+        'group_integrated' => array(
             'type'    => 'group',
-            'heading' => __( 'Cột 1: Khóa học linh động', 'flatsome-child' ),
+            'heading' => __( 'Cột 1: Ôn tập & Kiểm tra tích hợp', 'flatsome' ),
             'options' => array(
-                'badge_text' => array(
+                'integrated_title' => array(
                     'type'    => 'textfield',
-                    'heading' => __( 'Nhãn nổi bật', 'flatsome-child' ),
-                    'default' => 'KHÓA HỌC LINH ĐỘNG',
+                    'heading' => __( 'Tiêu đề cột', 'flatsome' ),
+                    'default' => 'Thời gian ôn tập, kiểm tra tích hợp giữa học lý thuyết và thực hành',
                 ),
-                'left_item_1' => array(
+                'step1_text' => array(
                     'type'    => 'textfield',
-                    'heading' => __( 'Mục 1', 'flatsome-child' ),
-                    'default' => 'Chủ động theo thời gian của học viên',
+                    'heading' => __( 'Bước 1 — Mô tả', 'flatsome' ),
+                    'default' => 'Ôn tập xe thiết bị',
                 ),
-                'left_item_2' => array(
+                'step1_value' => array(
                     'type'    => 'textfield',
-                    'heading' => __( 'Mục 2', 'flatsome-child' ),
-                    'default' => 'Thuận tiện để học mọi lúc, mọi nơi',
-                ),
-            ),
-        ),
-        'exam_group' => array(
-            'type'    => 'group',
-            'heading' => __( 'Cột 2: Kiểm tra & Ôn tập', 'flatsome-child' ),
-            'options' => array(
-                'right_item_1_label' => array(
-                    'type'    => 'textfield',
-                    'heading' => __( 'Mục 1 — Nội dung', 'flatsome-child' ),
-                    'default' => 'Kiểm tra hoàn thành khóa đào tạo với xe thiết bị có chấm điểm trên sân sát hạch:',
-                ),
-                'right_item_1_value' => array(
-                    'type'    => 'textfield',
-                    'heading' => __( 'Mục 1 — Giá trị nhấn mạnh', 'flatsome-child' ),
-                    'default' => '20 phút',
-                ),
-                'right_item_2_label' => array(
-                    'type'    => 'textfield',
-                    'heading' => __( 'Mục 2 — Nội dung', 'flatsome-child' ),
-                    'default' => 'Ôn tập xe thiết bị:',
-                ),
-                'right_item_2_value' => array(
-                    'type'    => 'textfield',
-                    'heading' => __( 'Mục 2 — Giá trị nhấn mạnh', 'flatsome-child' ),
+                    'heading' => __( 'Bước 1 — Thời gian', 'flatsome' ),
                     'default' => '2 giờ',
                 ),
-                'right_item_3_label' => array(
+                'step2_text' => array(
                     'type'    => 'textfield',
-                    'heading' => __( 'Mục 3 — Nội dung', 'flatsome-child' ),
-                    'default' => 'Ôn tập lý thuyết:',
+                    'heading' => __( 'Bước 2 — Mô tả', 'flatsome' ),
+                    'default' => 'Xét kiểm tra hoàn thành khóa học xe thiết bị có chấm điểm trên sân sát hạch',
                 ),
-                'right_item_3_value' => array(
+                'step2_value' => array(
                     'type'    => 'textfield',
-                    'heading' => __( 'Mục 3 — Giá trị nhấn mạnh', 'flatsome-child' ),
-                    'default' => 'Phòng lý thuyết',
+                    'heading' => __( 'Bước 2 — Thời gian', 'flatsome' ),
+                    'default' => '20 phút',
                 ),
             ),
         ),
-        'contact_group' => array(
+        'group_short' => array(
             'type'    => 'group',
-            'heading' => __( 'Liên hệ & Quy trình', 'flatsome-child' ),
+            'heading' => __( 'Cột 2: Khóa học ngắn hạn', 'flatsome' ),
+            'options' => array(
+                'short_badge' => array(
+                    'type'    => 'textfield',
+                    'heading' => __( 'Nhãn badge', 'flatsome' ),
+                    'default' => 'Khóa học ngắn hạn',
+                ),
+                'short_item1_dt' => array(
+                    'type'    => 'textfield',
+                    'heading' => __( 'Khóa 1 — Tên hạng', 'flatsome' ),
+                    'default' => 'Hạng B',
+                ),
+                'short_item1_dd' => array(
+                    'type'    => 'textfield',
+                    'heading' => __( 'Khóa 1 — Thời gian', 'flatsome' ),
+                    'default' => 'Các khóa 2 tháng',
+                ),
+                'short_item2_dt' => array(
+                    'type'    => 'textfield',
+                    'heading' => __( 'Khóa 2 — Tên hạng', 'flatsome' ),
+                    'default' => 'Hạng C1',
+                ),
+                'short_item2_dd' => array(
+                    'type'    => 'textfield',
+                    'heading' => __( 'Khóa 2 — Thời gian', 'flatsome' ),
+                    'default' => 'Các khóa 3 tháng',
+                ),
+            ),
+        ),
+        'group_notes' => array(
+            'type'    => 'group',
+            'heading' => __( 'Hàng ghi chú & Lưu ý', 'flatsome' ),
+            'options' => array(
+                'pass_text' => array(
+                    'type'    => 'textfield',
+                    'heading' => __( 'Đoạn xác suất đậu', 'flatsome' ),
+                    'default' => 'Xác suất học viên thi đậu cao',
+                ),
+                'note_html' => array(
+                    'type'    => 'textarea',
+                    'heading' => __( 'Lưu ý lệ phí (HTML)', 'flatsome' ),
+                    'default' => '<strong>Lưu ý:</strong> Phí&nbsp;sát&nbsp;hạch và lệ&nbsp;phí cấp&nbsp;bằng (<strong>645.000đ</strong>) học&nbsp;viên tự thanh&nbsp;toán thông&nbsp;qua <span class="course-info-panel__keep">mã&nbsp;QR&nbsp;cơ&nbsp;sở&nbsp;đào&nbsp;tạo</span> <span class="course-info-panel__keep">cấp&nbsp;trước&nbsp;kỳ&nbsp;sát&nbsp;hạch&nbsp;7&nbsp;ngày.</span>',
+                ),
+            ),
+        ),
+        'group_contact' => array(
+            'type'    => 'group',
+            'heading' => __( 'Thông tin liên hệ & Link', 'flatsome' ),
             'options' => array(
                 'phone_display' => array(
                     'type'    => 'textfield',
-                    'heading' => __( 'Số điện thoại hiển thị', 'flatsome-child' ),
+                    'heading' => __( 'Số điện thoại hiển thị', 'flatsome' ),
                     'default' => '0911.739.119 — 028.36.362.362',
                 ),
                 'phone_href' => array(
                     'type'    => 'textfield',
-                    'heading' => __( 'Link điện thoại (tel:...)', 'flatsome-child' ),
+                    'heading' => __( 'Link điện thoại (tel:)', 'flatsome' ),
                     'default' => 'tel:0911739119',
                 ),
                 'website_display' => array(
                     'type'    => 'textfield',
-                    'heading' => __( 'Website hiển thị', 'flatsome-child' ),
+                    'heading' => __( 'Website hiển thị', 'flatsome' ),
                     'default' => 'https://hpo.edu.vn',
                 ),
                 'website_href' => array(
                     'type'    => 'textfield',
-                    'heading' => __( 'Link Website', 'flatsome-child' ),
+                    'heading' => __( 'Link Website', 'flatsome' ),
                     'default' => 'https://hpo.edu.vn',
                 ),
                 'email_display' => array(
                     'type'    => 'textfield',
-                    'heading' => __( 'Email hiển thị', 'flatsome-child' ),
+                    'heading' => __( 'Email hiển thị', 'flatsome' ),
                     'default' => 'tuyensinh@hpo.edu.vn',
                 ),
                 'email_href' => array(
                     'type'    => 'textfield',
-                    'heading' => __( 'Link Email (mailto:...)', 'flatsome-child' ),
+                    'heading' => __( 'Link Email (mailto:)', 'flatsome' ),
                     'default' => 'mailto:tuyensinh@hpo.edu.vn',
                 ),
                 'process_link_text' => array(
                     'type'    => 'textfield',
-                    'heading' => __( 'Chữ link quy trình đào tạo', 'flatsome-child' ),
+                    'heading' => __( 'Chữ link quy trình', 'flatsome' ),
                     'default' => 'Xem chi tiết quy trình đào tạo',
                 ),
                 'process_link_url' => array(
                     'type'    => 'textfield',
-                    'heading' => __( 'URL quy trình đào tạo', 'flatsome-child' ),
-                    'default' => '/quy-dinh-chuong-trinh-hoc-lai-xe/',
+                    'heading' => __( 'URL link quy trình', 'flatsome' ),
+                    'default' => 'quy-dinh-chuong-trinh-hoc-lai-xe/',
                 ),
             ),
         ),

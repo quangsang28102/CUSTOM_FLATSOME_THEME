@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hpo_shortcode_awards( $atts ) {
     $a = shortcode_atts( array(
-        'section_title'         => 'Dấu ấn hành trình phát triển thành tựu',
+        'section_title'         => 'Dấu ấn hành trình phát triển thương hiệu',
         'autoplay_ms'           => '6500',
         'slide1_num'            => '01',
         'slide1_choice_title'   => 'Top 10',

@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 function hpo_shortcode_infrastructure( $atts ) {
     $a = shortcode_atts( array(
         'title_line_1'       => 'Hệ thống hạ tầng kỹ thuật',
-        'title_line_2'       => 'hiện đại, đồng bộ, thông suốt',
+        'title_line_2'       => 'hiện đại, đồng bộ, thông suốt, bảo mật',
         'stage_badge_prefix' => 'Lưu trữ tại',
         'stage_badge_brand'  => 'Viettel IDC',
         'stage_image'        => '',
@@ -22,6 +22,9 @@ function hpo_shortcode_infrastructure( $atts ) {
         'pillar3_num'        => '03',
         'pillar3_title'      => 'Thông suốt',
         'pillar3_desc'       => 'Truy cập mọi lúc trên máy tính, điện thoại, máy tính bảng.',
+        'pillar4_num'        => '04',
+        'pillar4_title'      => 'Bảo mật',
+        'pillar4_desc'       => 'Bảo mật thông tin học viên theo tiêu chuẩn an toàn dữ liệu.',
     ), $atts, 'hpo_infrastructure' );
 
     $stage_img_url = hpo_showcase_resolve_image( $a['stage_image'], 'so-huu-tri-tue/HaTangKyThuat.jpg' );
@@ -30,6 +33,7 @@ function hpo_shortcode_infrastructure( $atts ) {
         1 => '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2" /><rect x="3" y="14" width="18" height="7" rx="2" /><path d="M7 6.5h.01M7 17.5h.01M11 6.5h6M11 17.5h6" /></svg>',
         2 => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 0 1-15.5 6.2M3 12a9 9 0 0 1 15.5-6.2M21 4v5h-5M3 20v-5h5" /></svg>',
         3 => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg>',
+        4 => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10Z" /><path d="m9 12 2 2 4-4" /></svg>',
     );
 
     ob_start();
@@ -97,7 +101,7 @@ function hpo_shortcode_infrastructure( $atts ) {
           </figure>
 
           <ol class="infra-pillars" data-reveal data-delay="2">
-            <?php for ( $i = 1; $i <= 3; $i++ ) : ?>
+            <?php for ( $i = 1; $i <= 4; $i++ ) : ?>
             <li class="infra-pillar">
               <span class="infra-pillar__icon">
                 <?php echo $pillar_svgs[ $i ]; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>

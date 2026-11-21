@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hpo_hero_shortcode( $atts ) {
     $atts = shortcode_atts( array(
-        'welcome_text'   => 'Chào mừng các bạn đến với Hiệp Phát',
+        'welcome_text'   => 'Chào mừng các bạn đến với Hiệp&nbsp;Phát',
         'title_line_1'   => 'KỶ NGUYÊN AI',
         'title_line_2'   => 'TRONG ĐÀO TẠO LÁI XE',
         'description'    => 'Hệ sinh thái chuyển đổi số toàn diện cho đào tạo lái xe ô tô thông minh',
@@ -49,7 +49,7 @@ function hpo_hero_shortcode( $atts ) {
           <div class="hpo-digital-hero-inner">
             <div class="hpo-digital-left">
               <?php if ( ! empty( $atts['welcome_text'] ) ) : ?>
-                <p class="hpo-hero-welcome"><?php echo esc_html( $atts['welcome_text'] ); ?></p>
+                <p class="hpo-hero-welcome"><?php echo wp_kses_post( $atts['welcome_text'] ); ?></p>
               <?php endif; ?>
 
               <h1 class="hpo-digital-title">

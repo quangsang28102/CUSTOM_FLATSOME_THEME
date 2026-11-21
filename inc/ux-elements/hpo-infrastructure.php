@@ -22,7 +22,7 @@ add_ux_builder_shortcode( 'hpo_infrastructure', array(
                 'title_line_2' => array(
                     'type'    => 'textfield',
                     'heading' => __( 'Tiêu đề dòng 2 (Đỏ)', 'flatsome' ),
-                    'default' => 'hiện đại, đồng bộ, thông suốt',
+                    'default' => 'hiện đại, đồng bộ, thông suốt, bảo mật',
                 ),
                 'stage_badge_prefix' => array(
                     'type'    => 'textfield',
@@ -71,6 +71,15 @@ add_ux_builder_shortcode( 'hpo_infrastructure', array(
                 'pillar3_num'   => array( 'type' => 'textfield', 'heading' => __( 'Số thứ tự', 'flatsome' ), 'default' => '03' ),
                 'pillar3_title' => array( 'type' => 'textfield', 'heading' => __( 'Tiêu đề', 'flatsome' ), 'default' => 'Thông suốt' ),
                 'pillar3_desc'  => array( 'type' => 'textarea',  'heading' => __( 'Mô tả', 'flatsome' ), 'default' => 'Truy cập mọi lúc trên máy tính, điện thoại, máy tính bảng.' ),
+            ),
+        ),
+        'pillar_4' => array(
+            'type'    => 'group',
+            'heading' => __( 'Trụ cột 04', 'flatsome' ),
+            'options' => array(
+                'pillar4_num'   => array( 'type' => 'textfield', 'heading' => __( 'Số thứ tự', 'flatsome' ), 'default' => '04' ),
+                'pillar4_title' => array( 'type' => 'textfield', 'heading' => __( 'Tiêu đề', 'flatsome' ), 'default' => 'Bảo mật' ),
+                'pillar4_desc'  => array( 'type' => 'textarea',  'heading' => __( 'Mô tả', 'flatsome' ), 'default' => 'Bảo mật thông tin học viên theo tiêu chuẩn an toàn dữ liệu.' ),
             ),
         ),
     ),

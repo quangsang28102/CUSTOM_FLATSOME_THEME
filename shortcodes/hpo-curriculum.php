@@ -27,6 +27,10 @@ if ( ! function_exists( 'hpo_curriculum_resolve_image_url' ) ) {
 }
 
 function hpo_shortcode_curriculum( $atts ) {
+	static $curriculum_rendered = false;
+	if ( $curriculum_rendered && ( empty( $atts ) || empty( $atts['force'] ) ) ) {
+		return '';
+	}
 	$a = shortcode_atts( array(
 		'section_id'   => 'chuong-trinh-mon-hoc',
 		'eyebrow'      => 'Chương trình đào tạo',
@@ -40,7 +44,7 @@ function hpo_shortcode_curriculum( $atts ) {
 		'm2_title'     => 'Cấu tạo và sửa chữa thông thường',
 		'm2_meta'      => '8 chương',
 		'm2_sub'       => 'Danh mục nội dung chính',
-		'm3_title'     => 'Đạo đức người lái xe, văn hóa giao thông, phòng chống tác hại của rượu bia; kỹ năng phòng cháy chữa cháy và cứu nạn cứu hộ',
+		'm3_title'     => 'Đạo đức người lái xe, văn hóa giao thông, phòng chống tác hại của rượu bia;<br />kỹ năng phòng cháy chữa cháy và cứu nạn cứu hộ',
 		'm3_meta'      => '6 chương',
 		'm3_sub'       => 'Danh mục nội dung chính',
 		'm4_title'     => 'Kỹ thuật lái xe',
@@ -515,7 +519,7 @@ function hpo_shortcode_curriculum( $atts ) {
 	          <?php else : ?>
 	            <div class="syll-title">
 	              <?php if ( ! empty( $subj['wrap_title_span'] ) ) : ?>
-	                <span class="syll-title-main"><?php echo esc_html( $subj['title'] ); ?></span>
+	                <span class="syll-title-main"><?php echo wp_kses_post( $subj['title'] ); ?></span>
 	              <?php else : ?>
 	                <?php echo esc_html( $subj['title'] ); ?>
 	              <?php endif; ?>
@@ -880,6 +884,7 @@ function hpo_shortcode_curriculum( $atts ) {
 	  </div>
 	</section>
 	<?php
+	$curriculum_rendered = true;
 	return trim( ob_get_clean() );
 }
 add_shortcode( 'hpo_curriculum', 'hpo_shortcode_curriculum' );

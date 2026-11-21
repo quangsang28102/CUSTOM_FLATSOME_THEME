@@ -1885,3 +1885,212 @@ html body .uu-reg__status a {
     width: 100%;
   }
 }
+
+
+/* ===== 14/11/2026 COURSE INFO PANEL REDESIGN (BROCHURE 2 COLUMNS) ===== */
+/* ==========================================================================
+   Khối thông tin dưới thẻ khóa học (trước: "KHÓA HỌC LINH ĐỘNG") — thiết kế lại 14/11/2026
+   theo mẫu tờ rơi Sếp gửi, áp Design System Hiệp Phát. Dùng ở: trang chủ, Học phí.
+   Bố cục (máy tính, chỉnh 14/11 cho cân 2 cột):
+     [ Tiêu đề + 2 bước ôn tập/kiểm tra (~190px) ] [ Thẻ navy "Khóa học ngắn hạn" (~190px) ]
+     [ ✓ Xác suất thi đậu cao (nhãn xanh lá) | Lưu ý phí (ô đỏ nhạt) — trải ngang          ]
+     [ Liên hệ: điện thoại · website · email (giữ như cũ)                                  ]
+   Điện thoại/tablet: thẻ "Khóa học ngắn hạn" lên đầu, rồi 2 bước, rồi thi đậu + lưu ý, rồi liên hệ.
+   Màu: chữ #0a1330, xanh nhấn #1e40af/#1e3a8a, nền navy #2d3489→#1e3a8a với chữ vàng #facc15
+   (vàng chỉ trên nền tối), lưu ý phí = chữ đỏ #b91c1c trên nền đỏ nhạt. Chữ nội dung ≥ 17px.
+   Ghi đè courses-demo.css + hoc-phi-tuition-readable.css → tiền tố `html:root body`.
+   ========================================================================== */
+
+html:root body .course-info-section .course-info-panel {
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+  grid-template-areas:
+    "integrated short"
+    "notes notes"
+    "contact contact";
+  gap: clamp(18px, 2vw, 28px) clamp(20px, 2.6vw, 36px);
+}
+/* Hàng liên hệ: khoảng cách lấy từ gap của lưới, bỏ margin-top cũ (tránh hở ~70px) */
+html:root body .course-info-section .course-info-panel__column--contact { margin-top: 0; }
+
+/* ---- Cột trái: ôn tập, kiểm tra tích hợp ---- */
+html:root body .course-info-section .course-info-panel__column--integrated {
+  grid-area: integrated;
+  gap: 16px;
+}
+html:root body .course-info-section .course-info-panel__heading {
+  margin: 0;
+  color: #1e3a8a;
+  font: 700 clamp(19px, 1.5vw, 22px)/1.35 "Be Vietnam Pro", system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+html:root body .course-info-section .course-info-panel__steps {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+html:root body .course-info-section .course-info-panel__steps li {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px 12px 12px;
+  border: 1px solid #dbe4f5;
+  border-radius: 14px;
+  background: #f6f8ff;
+}
+html:root body .course-info-section .course-info-panel__step-num {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  background: #1e40af;
+  color: #fff;
+  font: 800 16px/1 "Be Vietnam Pro", system-ui, sans-serif;
+}
+html:root body .course-info-section .course-info-panel__step-text {
+  color: #0a1330;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+html:root body .course-info-section .course-info-panel__step-value {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #1e40af;
+  color: #fff;
+  font: 800 17px/1.2 "Be Vietnam Pro", system-ui, sans-serif;
+  white-space: nowrap;
+}
+html:root body .course-info-section .course-info-panel__pass {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  margin: 2px 0 0;
+  color: #0a1330;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+html:root body .course-info-section .course-info-panel__pass .course-info-panel__check {
+  width: 22px;
+  height: 22px;
+  border: 0;
+  background: #15803d;
+  color: #fff;
+  font-size: 13px;
+}
+/* ---- Hàng dưới: ✓ thi đậu cao (nhãn xanh lá) + Lưu ý phí ---- */
+html:root body .course-info-section .course-info-panel__column--notes {
+  grid-area: notes;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: stretch;
+  gap: 14px;
+}
+html:root body .course-info-section .course-info-panel__column--notes .course-info-panel__pass {
+  margin: 0;
+  padding: 12px 18px;
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  background: #f0fdf4;
+  color: #14532d;
+  white-space: nowrap;
+}
+html:root body .course-info-section .course-info-panel__note {
+  margin: 0;
+  padding: 12px 16px;
+  border-left: 4px solid #ea1e24;
+  border-radius: 0 12px 12px 0;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.55;
+}
+html:root body .course-info-section .course-info-panel__note strong { font-weight: 800; }
+
+/* ---- Cột phải: thẻ "Khóa học ngắn hạn" (nền navy, chữ vàng) ---- */
+html:root body .course-info-section .course-info-panel__column--short-course {
+  grid-area: short;
+  position: relative;
+  overflow: hidden;
+  /* Cao bằng cột trái (2 cột giờ cao gần bằng nhau sau khi đưa thi đậu + lưu ý xuống hàng dưới) */
+  align-self: stretch;
+  justify-content: center;
+  gap: 12px;
+  padding: clamp(18px, 1.8vw, 24px) clamp(20px, 2vw, 28px) clamp(8px, 1vw, 12px);
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(43, 38, 251, 0.55), transparent 55%),
+    linear-gradient(150deg, #2d3489 0%, #1e3a8a 100%);
+  box-shadow: 0 22px 44px -26px rgba(30, 58, 138, 0.75);
+  color: #fff;
+}
+html:root body .course-info-section .course-info-panel__short-badge {
+  align-self: flex-start;
+  margin: 0;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: #facc15;
+  color: #0a1330;
+  font: 800 15px/1.2 "Be Vietnam Pro", system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+html:root body .course-info-section .course-info-panel__short-list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+}
+html:root body .course-info-section .course-info-panel__short-list > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 14px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+html:root body .course-info-section .course-info-panel__short-list dt {
+  color: #fff;
+  font: 800 clamp(18px, 1.5vw, 21px)/1.25 "Be Vietnam Pro", system-ui, sans-serif;
+  text-transform: uppercase;
+}
+html:root body .course-info-section .course-info-panel__short-list dd {
+  margin: 0;
+  color: #facc15;
+  font: 800 clamp(19px, 1.6vw, 23px)/1.25 "Be Vietnam Pro", system-ui, sans-serif;
+}
+
+/* ---- Tablet / điện thoại: xếp dọc, thẻ ngắn hạn lên đầu ---- */
+@media (max-width: 1023px) {
+  html:root body .course-info-section .course-info-panel {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "short"
+      "integrated"
+      "notes"
+      "contact";
+    gap: 20px;
+  }
+  html:root body .course-info-section .course-info-panel__column--contact { margin-top: 0; }
+}
+@media (max-width: 560px) {
+  html:root body .course-info-section .course-info-panel__steps li {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 6px 12px;
+  }
+  html:root body .course-info-section .course-info-panel__step-num { width: 30px; height: 30px; font-size: 15px; }
+  html:root body .course-info-section .course-info-panel__step-value {
+    grid-column: 2;
+    justify-self: start;
+    font-size: 16px;
+  }
+  html:root body .course-info-section .course-info-panel__note { font-size: 15.5px; }
+  html:root body .course-info-section .course-info-panel__column--notes { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  html:root body .course-info-section .course-info-panel__column--notes .course-info-panel__pass { white-space: normal; }
+}
