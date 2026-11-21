@@ -1,0 +1,6 @@
+# GitHub Linguist Overrides
+# Cấu hình để GitHub nhận diện ngôn ngữ chính của Theme là PHP
+*.css linguist-detectable=false
+*.js linguist-detectable=false
+*.html linguist-detectable=false
+assets/** linguist-vendored
